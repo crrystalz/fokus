@@ -1,2 +1,3 @@
 # ghs-hackathon-23
-poop
+
+This is the Study Groupers Github repository
