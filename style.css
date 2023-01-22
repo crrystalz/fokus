@@ -337,6 +337,90 @@ h1 {
     margin-top: 20px;
 }
 
+#new-item {
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.glassmorphism {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+#todo-container {
+    position: relative;
+    z-index: 1;
+}
+
+#todo-list {
+    position: relative;
+    z-index: 2;
+}
+
+#todo-list li {
+position: relative;
+z-index: 3;
+padding: 10px;
+margin-bottom: 10px;
+border-radius: 10px;
+background-color: rgba(255, 255, 255, 0.9);
+}
+
+#todo-list label {
+position: relative;
+z-index: 4;
+margin-left: 30px;
+font-size: 18px;
+}
+
+/* Glassmorphism styles */
+.glassmorphism {
+--bg-color: rgba(255, 255, 255, 0.1);
+--fg-color: white;
+--accent-color: #3176ff;
+background-color: var(--bg-color);
+color: var(--fg-color);
+}
+
+.glassmorphism-button {
+background-color: var(--accent-color);
+color: var(--fg-color);
+padding: 0.5em 1em;
+border-radius: 0.5em;
+border: none;
+transition: background-color 0.3s ease;
+}
+
+.glassmorphism-button:hover {
+background-color: var(--fg-color);
+color: var(--accent-color);
+cursor: pointer;
+}
+
+.glassmorphism-list {
+list-style-type: none;
+padding: 0;
+margin: 0;
+}
+
+.glassmorphism-list li {
+display: flex;
+align-items: center;
+padding: 0.5em;
+border-radius: 0.5em;
+background-color: var(--bg-color);
+transition: background-color 0.3s ease;
+}
+
+.glassmorphism-list li:hover {
+background-color: var(--accent-color);
+}
+
+.glassmorphism-list input[type="checkbox"] {
+margin-right: 0.5em;
+}
+
 body {
     background-image: url('https://rare-gallery.com/uploads/posts/923734-abstract-pink-blue.png');
     background-repeat: no-repeat;
