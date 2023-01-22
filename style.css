@@ -110,7 +110,14 @@ h1 {
     backdrop-filter: blur(25px);
     box-shadow: -15px 17px 17px rgba(10, 10, 10, 0.25);
 }
+.tabcontent#calendar-card{
+    display: none;
 
+}
+
+#home{
+    display:block;
+}
 .flex-container {
     display: flex;
     justify-content: space-between;
@@ -220,7 +227,6 @@ h1 {
     width: 94.5%;
     height: 50%;
     z-index: 10;
-    display: flex; 
     position: relative;
     border: 2px solid rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(25px);

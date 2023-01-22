@@ -17,6 +17,7 @@
 <body>
 
 <div class="tab">
+    <button class="tablinks" onclick="openCity(event, 'home')">Home</button>
     <button class="tablinks" onclick="openCity(event, 'question')">AI Tutor</button>
     <button class="tablinks" onclick="openCity(event, 'calendar-card')">Calendar</button>
     <button class="tablinks" onclick="openCity(event, 'todo-container')">To-dos</button>
@@ -25,7 +26,11 @@
 <!-- <div class="banner">
     <h1>Fokus</h1>
 </div> -->
-
+<div class="tabcontent" id="home">
+    <center>
+    HOME for Fokus
+    </center>
+</div>
 <div id="info">
     <div id="streak"></div>
     <div id="timer-container">
@@ -82,29 +87,49 @@
 <script src="script.js"></script>
 
 <script>
-    function openCity(evt, cityName) {
-        // Declare all variables
-        var i, tabcontent, tablinks;
-    
+    function checkVisibility() {
+    var home = document.getElementById("home");
+    var info = document.getElementById("info");
+    console.log("adas")
+    if(home.style.display === "block" && info.style.display === ""){
+        info.style.display = "none";
+    }
+}
+    window.onload = function(){
+        document.getElementById("home").style.display = "block";
+        document.getElementsByClassName("tablinks")[0].classList.add("active");
+        checkVisibility();
+
+    }
+
+
+    function openCity(evt, cityName, displayInfo) {
         // Get all elements with class="tabcontent" and hide them
+        var i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tabcontent");
         for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
+            tabcontent[i].style.display = "none";
         }
-    
+
         // Get all elements with class="tablinks" and remove the class "active"
         tablinks = document.getElementsByClassName("tablinks");
         for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
+            tablinks[i].classList.remove("active");
         }
-    
-        // Show the current tab, and add an "active" class to the button that opened the tab
-        console.log(cityName)
-        document.getElementById(cityName).style.display = "block";
-        evt.currentTarget.className += " active";
-    }
-</script>
 
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.classList.add("active");
+        checkVisibility();
+
+        
+    }
+
+</script>
+<script>
+
+
+</script>
 </body>
 </html>
 
