@@ -133,61 +133,76 @@ todoForm.addEventListener("submit", (e) => {
         }, 500);
     }
 });
-// function startTimer() {
-//     var startingTime = document.getElementById('TimerInput').value * 60;
-//     var orginalTime = startingTime;
-//     setInterval(function(){
-//     startingTime--;
-//     document.getElementById("timer").innerHTML = "Study Timer: "+ startingTime;
-//     }, 1000);
-//     if(startingTime <= 0) {
-//         clearInterval(timer);
-//         document.getElementById("timer").innerHTML = "Time For Break!";
-//         breaktimer(startingTime)
-//     }
-// }
-let workTime = 25; // work interval in minutes
-let breakTime = 5; // break interval in minutes
-let isWorking = true; // flag to indicate whether the user is currently working
-let timeLeft; // variable to store the time left in the current interval
 
+let workTime = 25; // Default work time in minutes
+let breakTime = 5; // Default break time in minutes
+let isRunning = false; // Whether the timer is running or not
+let isWork = true; // Whether it is the work time or break time
+let intervalId; // ID of the interval used to update the timer
 
-function startTimer() {
+// Add click event listeners to the break and work time containers
+document.getElementById("break-time-container").addEventListener("click", changeBreakTime);
+document.getElementById("work-time-container").addEventListener("click", changeWorkTime);
 
-    if (isWorking) {
-        timeLeft = workTime * 60;
+function startStopTimer() {
+    if (isRunning) {
+        clearInterval(intervalId);
+        isRunning = false;
+        document.getElementById("start-stop").innerHTML = "Start";
     } else {
-        timeLeft = breakTime * 60;
-
+        startWorkTimer();
+        document.getElementById("start-stop").innerHTML = "Pause";
+        isRunning = true;
     }
-    let timer = setInterval(function() {
+}
+
+function startWorkTimer() {
+    let timeLeft = workTime * 60; // Convert minutes to seconds
+    document.getElementById("break-time-container").style.display = "none";
+    document.getElementById("work-time-container").style.display = "none";
+    document.getElementById("timer").innerHTML = `${workTime}:00`;
+    intervalId = setInterval(() => {
         timeLeft--;
         let minutes = Math.floor(timeLeft / 60);
         let seconds = timeLeft % 60;
-        document.getElementById("timer").innerHTML = `Time left: ${minutes}:${seconds}`;
-        if (timeLeft <= 0) {
-            clearInterval(timer);
-            isWorking = !isWorking; // switch between work and break intervals
-            startTimer();
+        document.getElementById("timer").innerHTML = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+        if (timeLeft === 0) {
+            clearInterval(intervalId);
+            startBreakTimer();
         }
     }, 1000);
 }
 
+function startBreakTimer() {
+    let timeLeft = breakTime * 60; // Convert minutes to seconds
+    document.getElementById("timer").innerHTML = `${breakTime}:00`;
+    intervalId = setInterval(() => {
+        timeLeft--;
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+        document.getElementById("timer").innerHTML = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+        if (timeLeft === 0) {
+            clearInterval(intervalId);
+            document.getElementById("break-time-container").style.display = "flex";
+            document.getElementById("work-time-container").style.display = "flex";
+            document.getElementById("start-stop").innerHTML = "Start";
+            isRunning = false;
+        }
+    }, 1000);
+}
 
+function changeBreakTime() {
+    let newBreakTime = prompt("Enter new break time (minutes)", breakTime);
+    if (newBreakTime != null) {
+        breakTime = newBreakTime;
+        document.getElementById("break-time").innerHTML = breakTime;
+    }
+}
 
-
-
-// function breaktimer(time){
-//     var startingBreakTime = parseint(time/5);
-//     setInterval(function(){
-//         startingBreakTime--;
-//         document.getElementById("timer").innerHTML = "Break Timer: " + startingBreakTime;
-//         }, 1000);
-//         if(startingBreakTime <= 0) {
-//             clearInterval(timer);
-//             document.getElementById("timer").innerHTML = "Time For Studying!";
-//             startTimer()
-//         }
-// }
-
-
+function changeWorkTime() {
+    let newWorkTime = prompt("Enter new work time (minutes)", workTime);
+    if (newWorkTime != null) {
+        workTime = newWorkTime;
+        document.getElementById("work-time").innerHTML = workTime;
+    }
+}

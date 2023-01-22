@@ -26,12 +26,24 @@
     <h1>Fokus</h1>
 </div> -->
 
-<div id="streak"></div><br>
-<div id="timer">
-    <!-- <input type="int", id="TimerInput", placeholder="Enter a Number 1-10"> -->
-    <p id="which?"></p>
-    <button id="submit-time" onclick="startTimer()">Start Study Timer</button>
+<div id="info">
+    <div id="streak"></div>
+    <div id="timer-container">
+        <div id="break-time-container">
+            <span id="break-time">5</span>
+            <span class="time-label">Break</span>
+        </div>
+        <div id="work-time-container">
+            <span id="work-time">25</span>
+            <span class="time-label">Work</span>
+        </div>
+        <div id="timer"></div>
+        <div id="controls">
+            <button id="start-stop" onclick="startStopTimer()">Start</button>
+        </div>
+    </div>    
 </div>
+
 <div class="tabcontent" id="question">
     <div class="input-container">
         <input id="input-text" type="text" placeholder="Enter your text here">
