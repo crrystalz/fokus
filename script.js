@@ -127,17 +127,9 @@ todoForm.addEventListener("submit", (e) => {
     if (e.target.type === "checkbox") {
         // If it is, toggle the completed class
         e.target.parentElement.classList.toggle("completed");
-    }
-});
-
-// Get all checkbox elements
-const checkboxes = document.getElementById("todo-list");
-
-checkboxes.addEventListener("change", function(event) {
-    if (event.target.matches("input[type='checkbox']")) {
-      event.target.parentNode.classList.add("fly-right");
-      setTimeout(() => {
-        event.target.parentNode.remove();
-      }, 500);
+        e.target.parentNode.classList.add("fly-right");
+        setTimeout(() => {
+            e.target.parentNode.remove();
+        }, 500);
     }
 });

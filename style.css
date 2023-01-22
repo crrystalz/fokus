@@ -97,13 +97,12 @@ h1 {
 }
 
 #streak {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
+    text-align: center;
     font-size: 24px;
     font-weight: 600;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     color: #a824f0;
+    margin: 20px;
 }
 
 .calendar-card {
@@ -189,7 +188,7 @@ h1 {
 }
 
 #todo-form button[type="submit"] {
-    background-color: #b032ff;
+    background-color: #3269ff;
     color: white;
     padding: 10px 20px;
     border: none;
