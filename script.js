@@ -90,50 +90,6 @@ document.addEventListener("visibilitychange", function() {
     }
 });
 
-// Get the form and list elements
-const todoForm = document.getElementById("todo-form");
-const todoList = document.getElementById("todo-list");
-
-// Handle the form submit event
-todoForm.addEventListener("submit", (e) => {
-    // Prevent the form from submitting
-    e.preventDefault();
-
-    // Get the task input value
-    const taskInput = document.getElementById("task-input");
-    const task = taskInput.value;
-
-    // Create a new list item
-    const li = document.createElement("li");
-    li.innerHTML = task;
-
-    // Create a new checkbox
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-
-    // Append the checkbox to the list item
-    li.appendChild(checkbox);
-        
-    // Add the list item to the todo list
-    todoList.appendChild(li);
-
-    // Clear the task input field
-    taskInput.value = "";
-    });
-
-    // Add an event listener to the todo list
-    todoList.addEventListener("click", (e) => {
-    // Check if the target is a checkbox
-    if (e.target.type === "checkbox") {
-        // If it is, toggle the completed class
-        e.target.parentElement.classList.toggle("completed");
-        e.target.parentNode.classList.add("fly-right");
-        setTimeout(() => {
-            e.target.parentNode.remove();
-        }, 500);
-    }
-});
-
 let workTime = 25; // Default work time in minutes
 let breakTime = 5; // Default break time in minutes
 let isRunning = false; // Whether the timer is running or not
@@ -206,3 +162,40 @@ function changeWorkTime() {
         document.getElementById("work-time").innerHTML = workTime;
     }
 }
+
+function addItem() {
+    // Get the value of the text input field
+    var newItem = document.getElementById("new-item").value;
+
+    // Create a new list item
+    var newLi = document.createElement("li");
+
+    // Create a new checkbox
+    var newCheckbox = document.createElement("input");
+    newCheckbox.type = "checkbox";
+    newCheckbox.onclick = removeItem;
+
+    // Create a new label
+    var newLabel = document.createElement("label");
+    newLabel.innerHTML = newItem;
+
+    // Add the checkbox and label to the list item
+    newLi.appendChild(newCheckbox);
+    newLi.appendChild(newLabel);
+
+    // Add the list item to the todo list
+    var todoList = document.getElementById("todo-list");
+    todoList.appendChild(newLi);
+
+    // Clear the text input field
+    document.getElementById("new-item").value = "";
+  }
+
+  function removeItem() {
+    // Get the parent list item of the checkbox that was clicked
+    var item = this.parentNode;
+
+    // Remove the parent list item from the todo list
+    var todoList = document.getElementById("todo-list");
+    todoList.removeChild(item);
+  }

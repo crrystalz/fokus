@@ -138,90 +138,6 @@ h1 {
     box-shadow: -15px 17px 17px rgba(10, 10, 10, 0.25);
 }
 
-#todo-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-#todo-list li {
-    background-color: #fff;
-    padding: 10px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-}
-
-#todo-container {
-    background: rgba(255, 255, 255, 0.1); 
-    padding: 20px;
-    border-radius: 10px;
-    border: 2px solid rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(25px);
-    box-shadow: -15px 17px 17px rgba(10, 10, 10, 0.25);
-    margin-top: 20px;
-}
-
-#todo-form {
-    display: flex;
-    align-items: center;
-}
-
-#todo-form input[type="text"] {
-    padding: 10px;
-    border-radius: 20px;
-    border: none;
-    flex-grow: 1;
-    margin-right: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-}
-
-#todo-form button[type="submit"] {
-    background-color: #3269ff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-#todo-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-#todo-list li input[type="checkbox"] {
-    margin-right: 10px;
-}
-
-#todo-form {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px; /* Add margin between the box to add new items and the first todo item */
-}
-
-#todo-list li {
-    background-color: rgba(255, 255, 255, 0.7);
-    padding: 10px;
-    margin-bottom: 10px; /* Add margin between each todo item */
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-    animation: fly-right 0.5s linear forwards;
-}
-
-@keyframes fly-right {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(150px);
-        opacity: 0;
-    }
-}
-
 #question {
     background: rgba(255, 255, 255, 0.1); 
     border-radius: 10px;
@@ -294,7 +210,6 @@ h1 {
 .tab button {
     font-size: 20px;
     font-weight: bold;
-    font-family: "Helvetica";
 }
 
 #info {
@@ -410,6 +325,16 @@ h1 {
 .time-label {
     color: white; /* White text color */
     font-size: 16px; /* Decrease font size */
+}
+
+#todo-container {
+    background: rgba(255, 255, 255, 0.1); 
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(25px);
+    box-shadow: -15px 17px 17px rgba(10, 10, 10, 0.25);
+    margin-top: 20px;
 }
 
 body {
