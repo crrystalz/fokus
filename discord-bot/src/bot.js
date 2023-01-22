@@ -1,32 +1,20 @@
-const {
-  Client,
-  Intents,
-  Collection
-} = require('discord.js');
-const fs = require('fs');
+require('dotenv').config()
 
-const client = new Client({
-  intents: [
-      Intents.FLAGS.GUILDS,
-      Intents.FLAGS.GUILD_MESSAGES,
-      Intents.FLAGS.GUILD_MEMBERS,
-  ]
-})
+const { token } = process.env
 
-client.commands = new Collection();
+const { Client, Events, GatewayIntentBits } = require('discord.js');
+const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
-require('dotenv').config();
+client.commands = new Collection()
+client.commandArray = []
 
-const functions = fs.readdirSync("./src/functions").filter(file => file.endsWith(".js"));
-const eventFiles = fs.readdirSync("./src/events").filter(file => file.endsWith(".js"));
-const commandFolders = fs.readdirSync("./src/commands").filter(file => fs.lstatSync(`./src/commands/${file}`).isDirectory());
+const functionFolders = fs.readdirSync('./src/functions')
+for (const folder of functionFolders) {
+  const functionFiles = fs.readdirSync('./src/functions/$(folder)').filter((file) => file.endsWith('.js'))
 
-(async () => {
-  for (file of functions) {
-      require(`./functions/${file}`)(client);
-  }
+  for (const file of functionFiles) require('./functions/$(folder)')(client)
+}
 
-  client.handleEvents(eventFiles, "./src/events");
-  client.handleCommands(commandFolders, "./src/commands");
-  client.login(process.env.DISCORD_TOKEN);
-})();
+client.handleEvents()
+client.handleCommands()
+client.login(token)
