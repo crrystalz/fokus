@@ -1,11 +1,12 @@
 body{
   background-color: blueviolet;
+  background-image: url("bg.jpg");
   color: white;
   text-align: center;
-  size: 10%;
+  size: 20%;
 }
 #heading{
-    size: 20%;
+    size: 40%;
 }
 
 .Logindiv{
@@ -13,6 +14,6 @@ body{
   width: 50%;
   border: 3px solid grey;
   background-color: black;
-  opacity: .9;
+  opacity: .5;
   padding: 10px;
 }
