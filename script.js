@@ -133,3 +133,61 @@ todoForm.addEventListener("submit", (e) => {
         }, 500);
     }
 });
+// function startTimer() {
+//     var startingTime = document.getElementById('TimerInput').value * 60;
+//     var orginalTime = startingTime;
+//     setInterval(function(){
+//     startingTime--;
+//     document.getElementById("timer").innerHTML = "Study Timer: "+ startingTime;
+//     }, 1000);
+//     if(startingTime <= 0) {
+//         clearInterval(timer);
+//         document.getElementById("timer").innerHTML = "Time For Break!";
+//         breaktimer(startingTime)
+//     }
+// }
+let workTime = 25; // work interval in minutes
+let breakTime = 5; // break interval in minutes
+let isWorking = true; // flag to indicate whether the user is currently working
+let timeLeft; // variable to store the time left in the current interval
+
+
+function startTimer() {
+
+    if (isWorking) {
+        timeLeft = workTime * 60;
+    } else {
+        timeLeft = breakTime * 60;
+
+    }
+    let timer = setInterval(function() {
+        timeLeft--;
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+        document.getElementById("timer").innerHTML = `Time left: ${minutes}:${seconds}`;
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            isWorking = !isWorking; // switch between work and break intervals
+            startTimer();
+        }
+    }, 1000);
+}
+
+
+
+
+
+// function breaktimer(time){
+//     var startingBreakTime = parseint(time/5);
+//     setInterval(function(){
+//         startingBreakTime--;
+//         document.getElementById("timer").innerHTML = "Break Timer: " + startingBreakTime;
+//         }, 1000);
+//         if(startingBreakTime <= 0) {
+//             clearInterval(timer);
+//             document.getElementById("timer").innerHTML = "Time For Studying!";
+//             startTimer()
+//         }
+// }
+
+
