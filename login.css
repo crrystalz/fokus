@@ -1,7 +1,7 @@
 body{
   background-color: blueviolet;
   background-image: url("bg.jpg");
-  color: black;
+  color: whblakcite;
   text-align: center;
   size: 20%;
 }
@@ -10,13 +10,16 @@ body{
 }
 
 #gSignInWrapper{
+  opacity: .8;
   color: black;
+  background-color: black;
+  border: 3px solid grey;
   margin: auto;
   width: 50%;
-  border: 3px solid grey;
-  background-color: black;
-  opacity: .5;
   padding: 10px;
+  border-radius: 5%;
+
+
 }
 #customBtn{
   display: inline-block;
@@ -34,7 +37,8 @@ body{
 span.label {
   font-family: serif;
   font-weight: normal;
-  color: black;
+  color: white;
+  opacity: 1;
 }
 span.icon {
   background: url('btn_google_signin_light_normal_web.png') transparent 5px 50% no-repeat;
@@ -51,4 +55,12 @@ span.buttonText {
   font-size: 14px;
   font-weight: bold;
   font-family: 'Roboto', sans-serif;
+}
+p{
+  color: white;
+  opacity: 1;
+}
+#hi{
+  color:black;
+
 }
