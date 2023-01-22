@@ -449,5 +449,7 @@ body {
 
 #desc {
     margin-top: 90px;
-    color: black;
+    color: rgba(0, 0, 0, 0);
+    /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
+    size:10px
 }
