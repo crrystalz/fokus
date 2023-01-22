@@ -11,7 +11,7 @@ function submitText() {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer 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`
+            'Authorization': `Bearer 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`
         },
         body: JSON.stringify({
             prompt: inputText,
@@ -72,4 +72,72 @@ $(document).ready(function() {
         editable: true,
         eventLimit: true,
     });
+});
+
+let currentStreak = 0;
+
+setInterval(() => {
+    currentStreak++;
+}, 1000);
+
+setInterval(() => {
+    document.getElementById("streak").innerHTML = "Current Streak: " + currentStreak + " seconds";
+}, 1000);
+
+document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
+        currentStreak = 0;
+    }
+});
+
+// Get the form and list elements
+const todoForm = document.getElementById("todo-form");
+const todoList = document.getElementById("todo-list");
+
+// Handle the form submit event
+todoForm.addEventListener("submit", (e) => {
+    // Prevent the form from submitting
+    e.preventDefault();
+
+    // Get the task input value
+    const taskInput = document.getElementById("task-input");
+    const task = taskInput.value;
+
+    // Create a new list item
+    const li = document.createElement("li");
+    li.innerHTML = task;
+
+    // Create a new checkbox
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+
+    // Append the checkbox to the list item
+    li.appendChild(checkbox);
+        
+    // Add the list item to the todo list
+    todoList.appendChild(li);
+
+    // Clear the task input field
+    taskInput.value = "";
+    });
+
+    // Add an event listener to the todo list
+    todoList.addEventListener("click", (e) => {
+    // Check if the target is a checkbox
+    if (e.target.type === "checkbox") {
+        // If it is, toggle the completed class
+        e.target.parentElement.classList.toggle("completed");
+    }
+});
+
+// Get all checkbox elements
+const checkboxes = document.getElementById("todo-list");
+
+checkboxes.addEventListener("change", function(event) {
+    if (event.target.matches("input[type='checkbox']")) {
+      event.target.parentNode.classList.add("fly-right");
+      setTimeout(() => {
+        event.target.parentNode.remove();
+      }, 500);
+    }
 });
