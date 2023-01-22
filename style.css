@@ -1,0 +1,28 @@
+body {
+    background-color: #7289DA;
+    font-family: "Open Sans", sans-serif;
+    color: #FFFFFF;
+}
+
+#input-text {
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    box-shadow: 2px 2px #2C2F33;
+}
+
+#submit-button {
+    background-color: #43B581;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#submit-button:hover {
+    background-color: #2C2F33;
+}
