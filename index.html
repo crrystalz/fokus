@@ -88,18 +88,21 @@
 
 <script>
     function checkVisibility() {
+    
     var home = document.getElementById("home");
     var info = document.getElementById("info");
+    info.style.display = "flex";
     console.log("adas")
-    if(home.style.display === "block" && info.style.display === ""){
+    if(home.style.display === "block" && info.style.display === "flex"){
         info.style.display = "none";
     }
+
 }
+
     window.onload = function(){
         document.getElementById("home").style.display = "block";
         document.getElementsByClassName("tablinks")[0].classList.add("active");
         checkVisibility();
-
     }
 
 
