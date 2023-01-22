@@ -26,3 +26,40 @@ body {
 #submit-button:hover {
     background-color: #2C2F33;
 }
+
+/* #loading {
+    display: none;
+}
+
+.loading-animation{
+    animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+} */
+
+#loading {
+    display: none;
+}
+#dot1, #dot2, #dot3 {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+#dot2 {
+    animation-delay: 0.3s;
+}
+#dot3 {
+    animation-delay: 0.6s;
+}
+
