@@ -11,7 +11,7 @@ function submitText() {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer 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`
+            'Authorization': `Bearer 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`
         },
         body: JSON.stringify({
             prompt: inputText,
