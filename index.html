@@ -1,18 +1,49 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <title>ChatGPT Webpage</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+    <title>OpenAI Davinci Test</title>
 </head>
-
 <body>
-  <div id="chat-container">
-    <textarea id="chat-input" placeholder="Enter text here"></textarea>
-    <button id="submit-button">Submit</button>
-    <div id="chat-response"></div>
-  </div>
-  <script src="script.js"></script>
-</body>
 
+<h1>OpenAI Davinci Test</h1>
+
+<!-- Text input for user -->
+<input id="input-text" type="text">
+
+<!-- Button to send input to OpenAI API -->
+<button id="submit-button" onclick="submitText()">Submit</button>
+
+<!-- Display for model's output -->
+<div id="output"></div>
+
+<script>
+    // API key for OpenAI
+    const API_KEY = 'YOUR_API_KEY';
+
+    // Function to send user input to OpenAI API and display output
+    function submitText() {
+        // Get user input
+        const inputText = document.getElementById('input-text').value;
+
+        // Send input to OpenAI API
+        fetch('https://api.openai.com/v1/engines/davinci/completions', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer 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`
+            },
+            body: JSON.stringify({
+                prompt: inputText,
+                temperature: 0.5
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Display output from model
+            const output = data.choices[0].text;
+            document.getElementById('output').innerHTML = output;
+        });
+    }
+</script>
+</body>
 </html>
