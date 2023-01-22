@@ -23,14 +23,15 @@
     <button class="tablinks" onclick="openCity(event, 'todo-container')">To-dos</button>
 </div>
 
-<!-- <div class="banner">
-    <h1>Fokus</h1>
-</div> -->
 <div class="tabcontent" id="home">
-    <center>
-    HOME for Fokus
-    </center>
+    <h1>
+        FOKUS
+    </h1>
+    <br>
+    <br>
+    <h2 id = "desc"> An all in one solution to help you study and stay FOKUSED!</h2>
 </div>
+
 <div id="info">
     <div id="streak"></div>
     <div id="timer-container">
@@ -100,6 +101,8 @@
 }
 
     window.onload = function(){
+        document.body.style.backgroundImage = "url('https://wallpaperaccess.com/full/1261215.jpg')";
+        document.body.style.backgroundSize = "150%";
         document.getElementById("home").style.display = "block";
         document.getElementsByClassName("tablinks")[0].classList.add("active");
         checkVisibility();
@@ -107,6 +110,15 @@
 
 
     function openCity(evt, cityName, displayInfo) {
+        if (cityName == "home"){
+            document.body.style.backgroundImage = "url('https://wallpaperaccess.com/full/1261215.jpg')";
+            document.body.style.backgroundSize = "150%";
+        }
+        else {
+            document.body.style.backgroundImage = "url('https://rare-gallery.com/uploads/posts/923734-abstract-pink-blue.png')";
+            document.body.style.backgroundSize = "175%";
+        }
+
         // Get all elements with class="tabcontent" and hide them
         var i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tabcontent");

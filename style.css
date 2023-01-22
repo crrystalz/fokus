@@ -112,11 +112,14 @@ h1 {
 }
 .tabcontent#calendar-card{
     display: none;
-
 }
 
 #home{
-    display:block;
+    padding: 180px;
+    text-align: center;
+    background:rgba(0, 0, 0, 0)
+    color: white;
+    font-size: 30px;
 }
 .flex-container {
     display: flex;
@@ -158,14 +161,15 @@ h1 {
 
 /* Style the tab */
 .tab {
+    margin-top: 30px;
     overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
+    /* border: 1px solid #ccc; */
+    /* background-color: #f1f1f1; */
 }
 
 /* Style the buttons that are used to open the tab content */
 .tab button {
-    background-color: inherit;
+    /* background-color: inherit; */
     float: left;
     border: none;
     outline: none;
@@ -176,31 +180,36 @@ h1 {
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-    background-color: #ddd;
+    background: rgba(255, 255, 255, 0.2)
 }
 
 /* Create an active/current tablink class */
 .tab button.active {
-    background-color: #ccc;
+    background: rgba(255, 255, 255, 0.3)
 }
 
 /* Style the tab content */
 .tabcontent {
     display: none;
     padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-top: none;
+    /* border: 1px solid #ccc; */
+    /* border-top: none; */
 }
 
 .tab {
-    border: 2px solid rgba(255, 255, 255, 0.05); /* Change color as desired */
-    background: rgba(255, 255, 255, 0.1); 
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Adjust shadow as desired */
+    margin-left: 25px;
+    /* border: 2px solid rgba(255, 255, 255, 0.05); Change color as desired
+    background: rgba(255, 255, 255, 0.1);
+    ox-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); Adjust shadow as desired */
 }
 
 /* Increase the width between characters in the menu */
 .tab button {
+    background: rgba(255, 255, 255, 0);
+    /* backdrop-filter: blur(1px); */
     letter-spacing: 2px; /* Adjust as desired */
+    border-radius: 5px;
+    padding: 2px;
 }
 
 /* Increase the width between tabs in the menu */
@@ -428,11 +437,17 @@ margin-right: 0.5em;
 }
 
 body {
-    background-image: url('https://rare-gallery.com/uploads/posts/923734-abstract-pink-blue.png');
+    background-image: url('https://wallpaperaccess.com/full/17520.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-position: center;
+    /* background-color: black; */
 }
 
 * {
     font-family: "San Francisco", sans-serif;
+}
+
+#desc {
+    margin-top: 90px;
+    color: black;
 }
